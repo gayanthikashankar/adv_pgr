@@ -14,8 +14,14 @@ class myClass{
 
     public:
     myClass(int x): x(x) {};
+
+    void print(){
+        std::cout<<"x: " << x << "\n";
+    }
 };
 
 int main(){
+    myClass myobject(7);
+    myobject.print();
 
 }
