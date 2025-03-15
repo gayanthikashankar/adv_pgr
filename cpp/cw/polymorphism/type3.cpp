@@ -17,7 +17,11 @@ int main(){
     //oa = ob; ======= pointers dont support implicit typecasting
     oa = (A*)ob; //cast ob into oa
     oa->a = 4;
-    std::cout << "val of a is: "<< oa->a << "\n";
+    std::cout << "val of a is: "<< oa->a << "\n"; //works because both class have sim mem layout
+
+    //when you set oa->a = 4, we're actually modifying ob->b
+
+
     
     delete oa;
     delete ob;
