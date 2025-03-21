@@ -1,29 +1,38 @@
-class RodCutting:
-    def __init__(self, n, p):
-        self.p = p
-        self.n = n
-        self.S = [[0]*(n+1) for _ in range(len(p))]
+'''
+
+O(n × m)- time and space
+
+'''
+
+
+class rod_cutting:
+    def __init__(self, rod_length, prices):
+        self.prices = prices
+        self.rod_length = rod_length
+        self.table = [[0]*(rod_length+1) for _ in range(len(prices))]
     
     def solve(self):
-        for i in range(1, len(self.p)):
-            for j in range(1, self.n+1):
+        for i in range(1, len(self.prices)):
+            for j in range(1, self.rod_length+1):
                 if i <= j:
-                    self.S[i][j] = max(self.S[i-1][j], self.p[i] + self.S[i][j-i])
+                    self.table[i][j] = max(self.table[i-1][j], self.prices[i] + self.table[i][j-i])
                 else:
-                    self.S[i][j] = self.S[i-1][j]
+                    self.table[i][j] = self.table[i-1][j]
     
     def show_result(self):
-        print("Max profit:", self.S[len(self.p)-1][self.n])
-        col_index = self.n
-        row_index = len(self.p) - 1
+        print("max profit:", self.table[len(self.prices)-1][self.rod_length])
         
-        while col_index > 0 and row_index > 0:
-            if self.S[row_index][col_index] == self.S[row_index-1][col_index]:
-                row_index = row_index - 1
+        current_length = self.rod_length
+        current_price_index = len(self.prices) - 1
+        
+        print("optimal cutting strategy:")
+        while current_length > 0 and current_price_index > 0:
+            if self.table[current_price_index][current_length] == self.table[current_price_index-1][current_length]:
+                current_price_index = current_price_index - 1
             else:
-                print("we take piece with length", row_index, "m")
-                col_index = col_index - row_index
+                print(f"  cut a piece of length {current_price_index} meters (price: {self.prices[current_price_index]})")
+                current_length = current_length - current_price_index
 
-rod = RodCutting(6, [0, 2, 5, 7, 3, 9])
+rod = rod_cutting(6, [0, 2, 5, 7, 3, 9])
 rod.solve()
 rod.show_result()

@@ -1,3 +1,25 @@
+'''
+should be equal to or less than weight
+
+dtm num item to include in collec tot weight less than or equal to weight
+max money
+
+types:
+1) divisible o(nlogn)
+- can divide an object
+- access of unit prices
+- find unit price of all objects 
+- sort int he way st the first object has the highest price possible 
+
+2)
+- cannot div an obj
+- either choose an obj ornot
+- suppose n= obj given, how many possibilities are there to pick an object? === 2^n
+- xi = 0/1 if we take the obj or not
+- vi = val of time
+- M = tot weight 
+'''
+
 class Knapsack:
     def __init__(self, n, M, w, v):
         self.n = n

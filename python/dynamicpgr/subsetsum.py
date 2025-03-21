@@ -7,15 +7,16 @@ sum of all elements of subsets should be equal to M
 '''
 
 '''
-time complexity: 
+time complexity: O(n x M)
 
 '''
 
-class SubsetSum:
+class subsetSum:
     def __init__(self, nums, target_sum):
         self.nums = nums
         self.target_sum = target_sum
         self.n = len(nums)
+
         self.dp = [[False] * (target_sum + 1) for _ in range(self.n + 1)]
         
         for i in range(self.n + 1):
@@ -31,31 +32,44 @@ class SubsetSum:
         
         return self.dp[self.n][self.target_sum]
     
-    def find_subset(self):
+    def find_subset_indices(self):
         if not self.dp[self.n][self.target_sum]:
             return []
         
-        subset = []
+        indices = []
         i, j = self.n, self.target_sum
         
         while i > 0 and j > 0:
             if self.dp[i][j] and not self.dp[i-1][j]:
-                subset.append(self.nums[i-1])
+                indices.append(i-1)
                 j -= self.nums[i-1]
             i -= 1
             
-        return subset
+        #asc order      
+        return indices
+    
+    def find_subset(self):
+        indices = self.find_subset_indices()
+        return [self.nums[i] for i in indices]
+    
+    def show_result(self):
+        if self.solve():
+            indices = self.find_subset_indices()
+            subset = self.find_subset()
+            
+            print(f"target sum {self.target_sum} can be achieved")
+            print(f"subset values: {subset}")
+            print(f"sum of subset: {sum(subset)}")
+            print("objects included:")
+            
+            for i, idx in enumerate(indices):
+                print(f"  object {idx} (value: {self.nums[idx]})")
+        else:
+            print(f"target sum {self.target_sum} cannot be achieved with the given set.")
 
 if __name__ == "__main__":
     nums = [5, 2, 1, 3]
     target_sum = 6
     
-    subset_sum = SubsetSum(nums, target_sum)
-    has_solution = subset_sum.solve()
-    
-    print(f"Can the target sum {target_sum} be achieved? {has_solution}")
-    
-    if has_solution:
-        solution = subset_sum.find_subset()
-        print(f"One possible subset: {solution}")
-        print(f"Sum of subset: {sum(solution)}")
+    subset_sum = subsetSum(nums, target_sum)
+    subset_sum.show_result()
