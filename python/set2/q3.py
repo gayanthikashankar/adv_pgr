@@ -16,7 +16,6 @@ class TermMarks:
     def results(self, threshold):
         return "passed" if sum(self.marks) / 3 >= threshold else "failed"
 
-# Test Case
 def test_TermMarks():
     t = TermMarks(10, 20, 30)
     print(t)
