@@ -15,12 +15,9 @@ s2 = Student("ana", 20)
 
 print(s1.name)
 print(s1.age)
-print(s1.name)
-
 
 print(s2.name)
 print(s2.age)
-print(s1.name)
 
 print(s1.class_year)
 print(s2.class_year)

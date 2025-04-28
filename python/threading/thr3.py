@@ -14,19 +14,21 @@ RACE cond
 
 APPLY LOCK
 '''
-lock = threading.Lock()
+import threading
 
+lock = threading.Lock()
 total_sum = 0
 
 def add_array(array, thread_name, l):
     global total_sum
-    l.acquire()
     
     array_sum = sum(array)
     print(f"{thread_name}: Array sum = {array_sum}")
-    l.release()
     
-
+    l.acquire()
+    total_sum += array_sum 
+    print(f"{thread_name}: Updated total sum to {total_sum}")
+    l.release()
 
 if __name__ == "__main__":
     array1 = [1, 2, 3, 4, 5]
@@ -34,11 +36,13 @@ if __name__ == "__main__":
     array3 = [5, 15, 25]
     array4 = [100, 200]
     
+    print("Main thread starting...")
     
-    t1 = threading.Thread(target=add_array, args=(lock, array1, "Thread 1"))
-    t2 = threading.Thread(target=add_array, args=(lock, array2, "Thread 2"))
-    t3 = threading.Thread(target=add_array, args=(lock, array3, "Thread 3"))
-    t4 = threading.Thread(target=add_array, args=(lock, array4, "Thread 4"))
+   
+    t1 = threading.Thread(target=add_array, args=(array1, "Thread 1", lock))
+    t2 = threading.Thread(target=add_array, args=(array2, "Thread 2", lock))
+    t3 = threading.Thread(target=add_array, args=(array3, "Thread 3", lock))
+    t4 = threading.Thread(target=add_array, args=(array4, "Thread 4", lock))
     
     t1.start()
     t2.start()
@@ -47,12 +51,10 @@ if __name__ == "__main__":
     
     print("All threads have been started")
     
-    '''
     t1.join()
     t2.join()
     t3.join()
     t4.join()
-    '''
     
     print("All threads have completed")
     print(f"Final sum of all arrays: {total_sum}")

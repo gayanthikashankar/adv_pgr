@@ -1,7 +1,6 @@
 /*
 list class with array based operations
 */
-//dont alter the comments, leave them untouched
 #include <iostream>
 
 //manages dynamic array

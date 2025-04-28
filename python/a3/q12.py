@@ -11,7 +11,7 @@ def fee(bf, rn):
     prog = rn[4]
     brn = rn[5:7]
     
-    depts = ["DS", "CS", "EE", "ME", "EE"]
+    depts = ["DS", "CS", "EE", "ME", #"EE"]
     if dept not in depts:
         raise InvalidRollException()
     

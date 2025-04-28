@@ -1,5 +1,11 @@
 import threading
 import time
+'''
+threading is not GIL
+-good for i/o bound things
+- not good for cpu bound - we need multiprocessing,
+'''
+
 
 sem = threading.Semaphore(2)
 

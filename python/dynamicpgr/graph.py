@@ -38,58 +38,39 @@ degree distributinon:
 
 class UndirectedGraph:
     def __init__(self, num_nodes=None):
-        """
-        Initialize an undirected graph.
-        
-        :param num_nodes: Optional fixed number of nodes. If None, creates a free graph.
-        """
-        # Use a dictionary to store adjacency list
+
+        #usea dictionary to store adjacency list
         self.graph = {}
         
-        # If num_nodes is provided, initialize nodes
+        #if num_nodes is provided, initialize nodes
         if num_nodes is not None:
             for i in range(1, num_nodes + 1):
                 self.graph[i] = set()
     
     def addNode(self, node):
-        """
-        Add a node to the graph.
-        
-        :param node: Node to be added
-        """
-        # If node already exists, do nothing
+
+        # node already exists, do nothing
         if node not in self.graph:
             self.graph[node] = set()
     
     def addEdge(self, a, b):
-        """
-        Add an undirected edge between nodes a and b.
-        
-        :param a: First node
-        :param b: Second node
-        """
-        # Ensure both nodes exist
+
+        #ensure both nodes exist
         self.addNode(a)
         self.addNode(b)
         
-        # Add edges in both directions
         self.graph[a].add(b)
         self.graph[b].add(a)
     
     def __add__(self, other):
-        """
-        Overload + operator to allow adding nodes or edges.
-        
-        :param other: Node or edge to add
-        :return: A new graph with added node/edge
-        """
+
         new_graph = UndirectedGraph()
         
-        # Copy current graph's nodes and edges
+        #copy current graph's nodes and edges
         for node, neighbors in self.graph.items():
             new_graph.graph[node] = neighbors.copy()
         
-        # Add the new node or edge
+        #add the new node or edge
         if isinstance(other, int):
             new_graph.addNode(other)
         elif isinstance(other, tuple) and len(other) == 2:
@@ -101,7 +82,6 @@ class UndirectedGraph:
 
         import matplotlib.pyplot as plt
         
-        # Calculate degrees
         degrees = [len(neighbors) for neighbors in self.graph.values()]
         
         plt.figure(figsize=(8, 6))
