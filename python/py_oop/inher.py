@@ -1,4 +1,4 @@
-#allows a clas sto inheirt attr+methods from another class---resuability + extensibility
+#allows a class to inheirt attr+methods from another class---resuability + extensibility
 
 class Animal:
     def __init__(self, name):

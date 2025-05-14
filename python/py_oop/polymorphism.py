@@ -1,5 +1,5 @@
 '''
-aheived through inheritance + duck typing
+aheived through inheritance + duct typing
 '''
 
 from abc import ABC, abstractmethod #abstract class
