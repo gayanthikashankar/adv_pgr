@@ -15,7 +15,7 @@ public:
     }
 };
 
-//seecond base class
+//second base class
 class Machine {
 public:
     void start() {
