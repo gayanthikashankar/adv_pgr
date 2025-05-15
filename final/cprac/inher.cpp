@@ -1,8 +1,5 @@
 /*
-ENCAPSULATION
-- store memebers pirvately and only give access to them through public methods
-- data hiding
-- cannot modify the data directly
+INHER
 */
 
 #include <iostream>
