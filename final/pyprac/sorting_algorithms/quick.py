@@ -1,3 +1,17 @@
+'''
+quick sort
+time complexity best case: O(nlogn)
+time complexity worst case: O(n^2)
+
+space complexity best case: O(logn)
+space complexity worst case: O(n)
+
+- choose piovot
+- partition the array into two halves (elems greater than pivot and less than pivot)
+- call quick sort on each half
+return till array size is 1, then its already sorted
+'''
+
 def sort(nums, left, right):
     if left < right:
         split_pos = split(nums, left, right)

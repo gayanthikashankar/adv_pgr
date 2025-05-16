@@ -1,3 +1,11 @@
+'''
+insertion sort
+time complexity: O(n^2) worst, O(n) best
+space complexity: O(1)
+
+sorted and unsorted part
+'''
+
 def sort(nums):
     for i in range(1, len(nums)):
         j=i
