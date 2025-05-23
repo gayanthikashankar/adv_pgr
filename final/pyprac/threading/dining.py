@@ -33,7 +33,7 @@ def philosopher(name, left_fork_id, right_fork_id):
         right_fork.acquire()
         
         #eat
-        print(f"{name} is eating spaghetti! Yum!")
+        print(f"{name} is eating spaghetti!")
         time.sleep(random.random())
         
         #put down both forks

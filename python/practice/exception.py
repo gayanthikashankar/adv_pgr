@@ -1,9 +1,14 @@
 #exception = event detet during during pgr exec that interrupts flow of pgr
 '''
-numerator = int(input("eneter a number as numerator: "))
-denominator = int(input("eneter a number as denominator: "))
-res = numerator/denominator
-print(res)
+FileNotFound
+ZeroDivisionError
+ValueError
+KeyError
+IndexError
+TypeError
+
+
+try, except, else, finally
 '''
 
 '''

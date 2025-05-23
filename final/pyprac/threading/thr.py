@@ -5,6 +5,9 @@ global interpreter lock (GIL)
 
 - threading lets the computer work on multiple tasks at once, 
 - like playing a game while also downloading a file
+
+eg1 = threading.Thread(target=target fn, args=(what we pass in the function+ ,))
+
 '''
 
 import threading

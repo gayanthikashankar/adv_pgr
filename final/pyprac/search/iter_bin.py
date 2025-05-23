@@ -8,7 +8,7 @@ def binary_search(lst, val):
     high = len(lst) - 1
     mid = 0
 
-    while low <+ high:
+    while low <= high:
         mid = (high + low) // 2
         if val == lst[mid]:
             return mid

@@ -1,20 +1,13 @@
-'''
-numbers in seq are the sum of the previous two numbers
+# use recursion 
 
-f0 = 0
-f1 = 1
-fn = f(n-1) + f(n-2)
+def fibonacci_memo(n, memo={}):
+    if n<=1:
+        return n
+    if n in memo:
+        return memo[n]
+    memo[n] = fibonacci_memo(n-1, memo) + fibonacci_memo(n-2, memo)
+    return memo[n]
 
-fn: 0,1,1,12,3,5,8,13,21,34,55
-n: 0,1,2,3,4,5,6,7,8,9,10
-'''
-def fib(n):
-    if n == 0:
-        return 0
-    elif n == 1:
-        return 1
-    else:
-        return fib(n-1) + fib(n-2)
+print(fibonacci_memo(10))  #55            
+        
 
-for n in range(11):
-    print(fib(n))

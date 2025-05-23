@@ -1,5 +1,5 @@
 #var scope=where a var is visible and accesible
-#cope resol: LEGB -> local-enclosed-global-builtin
+#scope resol: LEGB -> local-enclosed-global-builtin
 
 #INCOMPLETE
 

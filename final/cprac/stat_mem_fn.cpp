@@ -4,6 +4,7 @@ using namespace std;
 
 /*
 static member fns allow us to access and manipulate sttaic member variables
+- prceede all static fns/methods with the class name and ::
 */
 
 class Square {

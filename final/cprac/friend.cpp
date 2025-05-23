@@ -4,7 +4,8 @@ using namespace std;
 
 /*
 friend fn: access to private and protected members of a class
-
+in friend fn decl inside class pass the class name
+outside the class when defining the function pass the class name and object created in main functon
 */
 
 class ET{

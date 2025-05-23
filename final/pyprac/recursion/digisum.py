@@ -11,3 +11,4 @@ n//10 gives the number without the last digit
 '''
 
 print(sum(1234)) # 10
+

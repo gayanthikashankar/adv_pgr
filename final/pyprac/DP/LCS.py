@@ -3,7 +3,8 @@ Longest Common Subsequence (LCS)
 Find the length of the longest subsequence present in both given sequences.
 
 - 2d matrix
-- diagonal = add 1
+- diagonal = add 1 == characters match
+- move from fown to up = copy number below to the box above
 - start from bottom right (with zero padding)
 - bottom up
 - time complexity: O(m*n) where m and n are the lengths of the two sequences

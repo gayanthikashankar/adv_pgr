@@ -6,6 +6,8 @@ using namespace std;
 static member variables: belongs to the class, not to any object of the class
 - aka class variables
 - regular vars = instant vars
+- precede variable with 'static'
+- precede the variable outside the class definition with the class name and ::
 
 
 whenevr we use 'new' use 'delete' to free the memory
@@ -15,6 +17,8 @@ class Animal{
     public:
     string species;
     //static member variable
+    //global access, single shared counter(all animal obj share the same 'total' var allowing
+    //it to track the total among all instances)
     static int total;
 
     //constructor
@@ -37,6 +41,7 @@ int main() {
 
     /* variables are tied to the object: */
 
+    //dynamic memalloc
     Animal* lion = new Animal("lion");
     Animal* tiger = new Animal("tiger");
 
